@@ -1,8 +1,8 @@
+from django.contrib.auth.mixins import UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import redirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView
-
 from webapp.forms import ProductForm
 from webapp.models.product import Product
 
@@ -19,13 +19,16 @@ class ProductDetailView(DetailView):
     model = Product
 
 
-
-class ProductCreateView(SuccessMessageMixin, CreateView):
+class ProductCreateView(UserPassesTestMixin, SuccessMessageMixin, CreateView):
     template_name = 'products/product_add.html'
     model = Product
     form_class = ProductForm
     success_message = 'Товар успешно добавлен'
     success_url = '/'
+    permission_denied_message = 'У вас нет прав доступа'
+
+    def test_func(self):
+        return self.request.user.has_perm('webapp.add_product')
 
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST, request.FILES)
@@ -35,37 +38,28 @@ class ProductCreateView(SuccessMessageMixin, CreateView):
         context = {'form': form}
         return self.render_to_response(context)
 
-    # def get_success_url(self):
-    #     # return reverse('product_detail', kwargs={'pk': self.object.pk})
-    #     return reverse('index')
 
-    # def form_valid(self, form):
-    #     form = self.form_class(self.request.POST, self.request.FILES)
-    #     return super().form_valid(form)
-    #
-    # def form_invalid(self, form):
-    #     form = self.form_class(self.request.POST, self.request.FILES)
-    #     return super().form_invalid(form)
-
-
-
-    # def post(self, request, *args, **kwargs):
-    #     form = self.form_class(request.POST, request.FILES)
-    #     context = {'form': form}
-    #     return self.render_to_response(context)
-
-
-class ProductUpdateView(SuccessMessageMixin, UpdateView):
+class ProductUpdateView(UserPassesTestMixin, SuccessMessageMixin, UpdateView):
     template_name = 'products/product_update.html'
     model = Product
     form_class = ProductForm
     success_message = 'Товар успешно изменен'
+    permission_denied_message = 'У вас нет прав доступа'
+
+    def test_func(self):
+        return self.request.user.has_perm('webapp.change_product')
 
     def get_success_url(self):
         return reverse('product_detail', kwargs={'pk': self.kwargs.get('pk')})
 
-class ProductDeleteView(SuccessMessageMixin, DeleteView):
+
+class ProductDeleteView(UserPassesTestMixin, SuccessMessageMixin, DeleteView):
     template_name = 'products/product_confirm_delete.html'
     model = Product
     success_url = reverse_lazy('index')
     success_message = 'Товар успешно удален!'
+    permission_denied_message = 'У вас нет прав доступа'
+
+    def test_func(self):
+        return self.request.user.has_perm('webapp.delete_product')
+

@@ -29,23 +29,30 @@
                         <p class="small-text">
                             added: {{ product.created_at }}
                         </p>
-                        <div class="row margin-bottom-buttons">
-                            <div class="col-5">
-                                <a class="btn btn-primary edit-buttons-detail"
-                                   href="{% url 'product_update' product.pk %}"
-                                   role="button">Изменить</a>
+
+                        {% if user.is_authenticated %}
+                            <div class="row margin-bottom-buttons">
+                                {% if perms.webapp.change_product %}
+                                    <div class="col-5">
+                                        <a class="btn btn-primary edit-buttons-detail"
+                                           href="{% url 'product_update' product.pk %}"
+                                           role="button">Изменить</a>
+                                    </div>
+                                {% endif %}
+                                {% if perms.webapp.delete_product %}
+                                    <div class="col-3">
+                                        <a class="btn btn-danger" href="{% url 'product_delete' product.pk %}" role="button">Удалить</a>
+                                    </div>
+                                {% endif %}
                             </div>
-                            <div class="col-3">
-                                <a class="btn btn-danger" href="{% url 'product_delete' product.pk %}" role="button">Удалить</a>
+                            <div class="row margin-bottom-buttons">
+                                <div class="col-12">
+                                    <a class="btn btn-primary edit-buttons-detail green green-tp product-write-comment"
+                                       href="{% url 'product_add_comment' product.pk %}"
+                                       role="button">Написать отзыв</a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row margin-bottom-buttons">
-                            <div class="col-12">
-                                <a class="btn btn-primary edit-buttons-detail green green-tp product-write-comment"
-                                   href="{% url 'product_add_comment' product.pk %}"
-                                   role="button">Написать отзыв</a>
-                            </div>
-                        </div>
+                        {% endif %}
                     </div>
                 </div>
                 <div class="row">

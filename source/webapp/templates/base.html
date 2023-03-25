@@ -27,10 +27,12 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         {% if user.is_authenticated %}
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="{% url 'product_add' %}">Добавить
-                                    товар</a>
-                            </li>
+                            {% if perms.webapp.add_product %}
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="{% url 'product_add' %}">Добавить
+                                        товар</a>
+                                </li>
+                            {% endif %}
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="{% url 'profile' user.pk %}">User: <b>{{ user.username }}</b></a>
                             </li>
