@@ -42,17 +42,28 @@ body {
     font-size: 13px;
 }
 
-.edit-buttons{
+.edit-buttons {
     width: 90px;
 }
 
-.product-comments-title {
+.user-title, .product-comments-title {
     text-align: center;
+}
+
+.product-comments-title {
     margin-top: 25px;
     margin-bottom: 30px;
 }
 
+.user-info-block, .product-comment-block {
+    margin-left: 27px;
+}
+
 .product-comment-block {
     margin-bottom: 20px;
-    margin-left: 27px;
+}
+
+.user-title {
+    margin-top: 5px;
+    margin-bottom: 22px;
 }

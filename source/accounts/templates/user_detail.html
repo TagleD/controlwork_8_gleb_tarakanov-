@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block title %}Аккаунт{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row d-flex justify-content-center card-margin">
+            <div class="col-8 card text-bg-dark card-padding">
+                <h3 class="user-title">Информация об аккаунте</h3>
+                <div class="user-info-block">
+                    <p>Nickname: {{ user.username }}</p>
+                    <p>Имя: {{ user.nickname }}</p>
+                    <p>Email: {{ user.email }}</p>
+                </div>
+            </div>
+        </div>
+        {% include 'partial/comments_list.html' %}
+    </div>
+{% endblock %}
+
+{#<div class="container">#}
+{#        <div class="row">#}
+{#            <div class="row d-flex justify-content-center post-margin-top">#}
+{#                <div class="col-9">#}
+{#                    <div class="row profile-margin-top">#}
+{# Разметка для аватара #}
+{# Разметка для информаци о пользователе #}
+{#                        <div class="col-8">#}
+{#                            <div class="row profile-info-margin">#}
+{#                                <div class="col-3">#}
+{#                                    <h5 class="profile-username">{{ user.username }}</h5>#}
+{#                                </div>#}
+{#                                <div class="col-4 profile-edit-block">#}
+{#                                    <a href="{% url 'change' user.pk %}" class="profile-link-edit">Редактировать профиль</a>#}
+{#                                </div>#}
+{#                                <div class="col-2 profile-add-block">#}
+{#                                    <a href="{% url 'post_add' %}" class="profile-link-edit">Добавить</a>#}
+{#                                </div>#}
+{#                                <div class="col-2">#}
+{#                                    <a href="{% url 'logout' %}">Выйти</a>#}
+{#                                </div>#}
+{#                            </div>#}
+{##}
+{#                            <div class="row">#}
+{#                                <div class="col-12">#}
+{#                                    <p><b>{{ user.first_name }}</b></p>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                            <div class="row profile-description">#}
+{#                                <div class="col-12">#}
+{#                                    <p>{{ user.description }}</p>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    {% include 'partial/posts_list.html' %}#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}

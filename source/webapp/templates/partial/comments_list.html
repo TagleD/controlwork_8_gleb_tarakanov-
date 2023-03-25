@@ -1,0 +1,32 @@
+{#{% for comment in user.user_comments.all %}#}
+{#    <div class="product-comment-block">#}
+{#        <h5>Автор: {{ comment.author }}</h5>#}
+{#        <p>Оценка: {{ comment.rating }}</p>#}
+{#        <p>{{ comment.text }}</p>#}
+{#    </div>#}
+{#{% endfor %}#}
+
+<div class="row d-flex justify-content-center card-margin">
+    <div class="col-8 card text-bg-dark">
+        <div class="row card-padding">
+            <h3 class="user-title">Отзывы пользователя {{ user.username }}</h3>
+            {% if user.user_comments.all %}
+                {% for comment in user.user_comments.all %}
+                    <div class="row">
+                        <div class="col-4">
+                            <img src="{{ comment.product.image.url }}" class="img-fluid" alt="{{ comment.product.name }}">
+                        </div>
+                        <div class="col-7">
+                            <p>Продукт: {{ comment.product.name }}</p>
+                            <p class="small-text">Категория: {{ comment.product.category }}</p>
+                            <p>Оценка: {{ comment.rating }}</p>
+                            <p>{{ comment.text }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <h5 class="not-find">По вашему запросу товары не найдены</h5>
+            {% endif %}
+        </div>
+    </div>
+</div>
