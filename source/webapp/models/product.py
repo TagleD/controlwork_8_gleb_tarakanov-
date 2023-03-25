@@ -1,3 +1,4 @@
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.db.models import TextChoices
 from django.utils import timezone
@@ -13,7 +14,7 @@ class CategoryChoice(TextChoices):
 
 class Product(models.Model):
     name = models.CharField(
-        max_length=80,
+        max_length=40,
         blank=False,
         null=False,
         verbose_name='Наименование'
@@ -61,8 +62,7 @@ class Product(models.Model):
         self.deleted_at = timezone.now()
         self.save()
 
+
     class Meta:
         verbose_name = 'Товар'
         verbose_name_plural = 'Товары'
-
-
