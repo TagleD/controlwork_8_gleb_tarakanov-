@@ -1,0 +1,17 @@
+* {
+    font-family: 'Shantell Sans', cursive;
+}
+
+body {
+    background: url("/static/img/back_2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.right-menu {
+    float: right;
+}
+
+.container {
+    max-width: 1000px !important;
+}
