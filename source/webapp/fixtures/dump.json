@@ -22,5 +22,125 @@
     "created_at": "2023-03-25T08:57:04.117Z",
     "updated_at": "2023-03-25T08:57:04.117Z"
   }
+},
+{
+  "model": "webapp.product",
+  "pk": 4,
+  "fields": {
+    "name": "Tsunami Nekomata",
+    "category": "SNIPERS",
+    "description": "Precision without compromise. The Nekomata is a Tech Sniper Rifle manufactured by Tsunami Defense Systems in Cyberpunk 2077.",
+    "image": "post_images/Nekomata_Default.webp",
+    "created_at": "2023-03-25T12:59:04.691Z",
+    "updated_at": "2023-03-25T12:59:04.691Z"
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 5,
+  "fields": {
+    "name": "Hammer",
+    "category": "MELEE",
+    "description": "Молот — тупое оружие ближнего боя в Cyberpunk 2077.\r\nС молотком в руке любая проблема кажется гвоздем.",
+    "image": "post_images/Hammer_Default.webp",
+    "created_at": "2023-03-25T13:01:28.767Z",
+    "updated_at": "2023-03-25T13:01:28.767Z"
+  }
+},
+{
+  "model": "webapp.comment",
+  "pk": 4,
+  "fields": {
+    "author": 1,
+    "product": 3,
+    "text": "Отличный нож, высокий урон",
+    "rating": "3",
+    "created_at": "2023-03-25T11:04:30.995Z",
+    "updated_at": "2023-03-25T11:04:30.995Z"
+  }
+},
+{
+  "model": "webapp.comment",
+  "pk": 5,
+  "fields": {
+    "author": 3,
+    "product": 3,
+    "text": "Хорошо",
+    "rating": "3",
+    "created_at": "2023-03-25T12:46:19.294Z",
+    "updated_at": "2023-03-25T12:46:19.294Z"
+  }
+},
+{
+  "model": "webapp.comment",
+  "pk": 6,
+  "fields": {
+    "author": 2,
+    "product": 5,
+    "text": "Get started by including Bootstrap’s production-ready CSS and JavaScript via CDN without the need for any build steps. See it in practice with this Bootstrap CodePen demo.",
+    "rating": "3",
+    "created_at": "2023-03-25T13:02:31.563Z",
+    "updated_at": "2023-03-25T13:02:31.563Z"
+  }
+},
+{
+  "model": "webapp.comment",
+  "pk": 7,
+  "fields": {
+    "author": 2,
+    "product": 5,
+    "text": "ksdfnksdjfkjds",
+    "rating": "2",
+    "created_at": "2023-03-25T13:02:37.853Z",
+    "updated_at": "2023-03-25T13:02:37.853Z"
+  }
+},
+{
+  "model": "webapp.comment",
+  "pk": 8,
+  "fields": {
+    "author": 2,
+    "product": 4,
+    "text": "неплохо",
+    "rating": "3",
+    "created_at": "2023-03-25T13:03:11.750Z",
+    "updated_at": "2023-03-25T13:03:11.750Z"
+  }
+},
+{
+  "model": "webapp.comment",
+  "pk": 9,
+  "fields": {
+    "author": 1,
+    "product": 5,
+    "text": "выоиаморвыиромвым",
+    "rating": "2",
+    "created_at": "2023-03-25T13:03:40.828Z",
+    "updated_at": "2023-03-25T13:03:40.828Z"
+  }
+},
+{
+  "model": "webapp.comment",
+  "pk": 10,
+  "fields": {
+    "author": 1,
+    "product": 5,
+    "text": "уцоаиуцоаиуц",
+    "rating": "4",
+    "created_at": "2023-03-25T13:03:46.803Z",
+    "updated_at": "2023-03-25T13:03:46.803Z"
+  }
+},
+{
+  "model": "webapp.comment",
+  "pk": 11,
+  "fields": {
+    "author": 1,
+    "product": 5,
+    "text": "уцаолцуаоуцола",
+    "rating": "4",
+    "created_at": "2023-03-25T13:03:53.451Z",
+    "updated_at": "2023-03-25T13:03:53.451Z"
+  }
 }
 ]
