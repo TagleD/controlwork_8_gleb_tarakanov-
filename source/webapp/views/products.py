@@ -12,6 +12,8 @@ class IndexView(ListView):
     model = Product
     context_object_name = 'products'
     ordering = ('-created_at',)
+    paginate_orphans = 1
+    paginate_by = 2
 
 
 class ProductDetailView(DetailView):
