@@ -83,3 +83,7 @@ body {
 .comment-confirm-btn {
     margin-left: 13px;
 }
+
+.user-change-btn {
+    width: 176px;
+}

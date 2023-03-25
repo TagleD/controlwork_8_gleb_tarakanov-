@@ -6,7 +6,7 @@ from django.shortcuts import redirect
 from django.urls import reverse
 from django.views.generic import TemplateView, CreateView, DetailView, UpdateView
 
-from accounts.forms import LoginForm, CustomUserCreationForm, UserChangeForm
+from accounts.forms import LoginForm, CustomUserCreationForm, UserChangeForm, PasswordChangeForm
 
 
 class LoginView(TemplateView):
@@ -90,5 +90,17 @@ class UserChangeView(UpdateView):
 
     def get_success_url(self):
         return reverse('profile', kwargs={'pk': self.object.pk})
+
+
+class UserPasswordChangeView(UpdateView):
+    model = get_user_model()
+    template_name = 'user_change_password.html'
+    form_class = PasswordChangeForm
+    context_object_name = 'user_obj'
+
+
+    def get_success_url(self):
+        return reverse('login')
+
 
 
