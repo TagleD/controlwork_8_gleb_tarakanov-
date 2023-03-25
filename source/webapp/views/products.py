@@ -18,6 +18,12 @@ class ProductDetailView(DetailView):
     template_name = 'products/product_detail.html'
     model = Product
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = self.request.user
+        context['user'] = user
+        return context
+
 
 class ProductCreateView(UserPassesTestMixin, SuccessMessageMixin, CreateView):
     template_name = 'products/product_add.html'

@@ -65,16 +65,20 @@
                         <h5>Автор: {{ comment.author }}</h5>
                         <p>Оценка: {{ comment.rating }}</p>
                         <p>{{ comment.text }}</p>
-                        <div class="row margin-bottom-buttons">
-                            <div class="col-2">
-                                <a class="btn btn-primary edit-buttons-detail"
-                                   href="{% url 'product_update_comment' comment.id %}"
-                                   role="button">Изменить</a>
+                        {% if user.is_authenticated %}
+                            <div class="row margin-bottom-buttons">
+                                {% if user.id == comment.author.id %}
+                                    <div class="col-2">
+                                        <a class="btn btn-primary edit-buttons-detail"
+                                           href="{% url 'product_update_comment' comment.id %}"
+                                           role="button">Изменить</a>
+                                    </div>
+                                    <div class="col-3">
+                                        <a class="btn btn-danger comment-delete" href="{% url 'product_comment_delete' comment.pk %}" role="button">Удалить</a>
+                                    </div>
+                                {% endif %}
                             </div>
-                            <div class="col-3">
-                                <a class="btn btn-danger comment-delete" href="{% url 'product_comment_delete' comment.pk %}" role="button">Удалить</a>
-                            </div>
-                        </div>
+                        {% endif %}
                     </div>
                 {% endfor %}
             </div>
