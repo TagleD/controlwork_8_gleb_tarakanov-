@@ -70,4 +70,3 @@ class ProductDeleteView(UserPassesTestMixin, SuccessMessageMixin, DeleteView):
 
     def test_func(self):
         return self.request.user.has_perm('webapp.delete_product')
-

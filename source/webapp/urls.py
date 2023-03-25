@@ -1,5 +1,4 @@
 from django.urls import path
-
 from webapp.views.comments import CommentCreateView, CommentUpdateView, CommentDeleteView
 from webapp.views.products import IndexView, ProductCreateView, ProductUpdateView, ProductDetailView, ProductDeleteView
 

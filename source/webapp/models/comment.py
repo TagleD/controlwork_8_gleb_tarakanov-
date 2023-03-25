@@ -11,6 +11,7 @@ class RatingChoice(TextChoices):
     FOUR = '4', '4'
     FIVE = '5', '5'
 
+
 class Comment(models.Model):
     author = models.ForeignKey(
         to=get_user_model(),

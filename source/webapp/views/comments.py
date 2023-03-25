@@ -25,7 +25,6 @@ class CommentCreateView(UserPassesTestMixin, SuccessMessageMixin, CreateView):
         comment.save()
         return redirect('product_detail', pk=product.pk)
 
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         product = get_object_or_404(Product, pk=self.kwargs.get('pk'))
@@ -54,6 +53,7 @@ class CommentUpdateView(UserPassesTestMixin, SuccessMessageMixin, UpdateView):
         context['product'] = product
         return context
 
+
 class CommentDeleteView(UserPassesTestMixin, SuccessMessageMixin, DeleteView):
     template_name = 'comments/comment_confirm_delete.html'
     model = Comment
@@ -72,5 +72,3 @@ class CommentDeleteView(UserPassesTestMixin, SuccessMessageMixin, DeleteView):
         product = comment.product
         context['product'] = product
         return context
-
-

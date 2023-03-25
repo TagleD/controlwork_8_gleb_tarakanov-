@@ -42,7 +42,6 @@ def logout_view(request):
     return redirect('index')
 
 
-
 class RegisterView(CreateView):
     template_name = 'registration.html'
     form_class = CustomUserCreationForm
@@ -63,8 +62,6 @@ class ProfileView(LoginRequiredMixin, DetailView):
     template_name = 'user_detail.html'
     paginate_related_by = 9
     paginate_related_orphans = 0
-
-
 
     def get_context_data(self, **kwargs):
         comments = self.object.user_comments.order_by('-created_at')
@@ -98,9 +95,5 @@ class UserPasswordChangeView(UpdateView):
     form_class = PasswordChangeForm
     context_object_name = 'user_obj'
 
-
     def get_success_url(self):
         return reverse('login')
-
-
-
