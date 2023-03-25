@@ -1,7 +1,9 @@
 from django.urls import path
 
-from webapp.views.comments import CommentCreateView
+from webapp.views.comments import CommentCreateView, CommentUpdateView
 from webapp.views.products import IndexView, ProductCreateView, ProductUpdateView, ProductDetailView, ProductDeleteView
+
+
 
 urlpatterns = [
     # URLS для продуктов
@@ -14,4 +16,5 @@ urlpatterns = [
 
     # URLS для комментариев
     path('product/<int:pk>/comment/add', CommentCreateView.as_view(), name='product_add_comment'),
+    path('product/comment/<int:pk>/update', CommentUpdateView.as_view(), name='product_update_comment')
 ]
