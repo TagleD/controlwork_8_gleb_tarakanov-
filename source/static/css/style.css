@@ -79,3 +79,7 @@ body {
 .comment-margin-bottom{
     margin-bottom: 20px;
 }
+
+.comment-confirm-btn {
+    margin-left: 13px;
+}

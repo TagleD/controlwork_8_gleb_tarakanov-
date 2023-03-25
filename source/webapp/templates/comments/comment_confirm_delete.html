@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Удаление комментария товара {{ product.name }}{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row d-flex justify-content-center card-margin">
+            <div class="col-8 card text-bg-dark">
+                <div class="row card-padding title-delete">
+                    <h3>Вы точно хотите удалить комментарий к товару {{ product.name }} ?</h3>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <img src="{{ comment.product.image.url }}" class="img-fluid" alt="{{ comment.product.name }}">
+                    </div>
+                    <div class="col-7">
+                        <p>Продукт: {{ comment.product.name }}</p>
+                        <p class="small-text">Категория: {{ comment.product.category }}</p>
+                        <p>Оценка: {{ comment.rating }}</p>
+                        <p>{{ comment.text }}</p>
+                    </div>
+                </div>
+                <div class="row margin-bottom-buttons">
+                    <div class="col-2">
+                        <a class="btn btn-primary edit-buttons-detail"
+                           href="{% url 'product_detail' comment.product.id %}"
+                           role="button">Отменить</a>
+                    </div>
+                    <div class="col-3">
+                        <form action="{% url 'product_comment_confirm_delete' comment.pk %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class='btn btn-danger comment-confirm-btn'>Удалить</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

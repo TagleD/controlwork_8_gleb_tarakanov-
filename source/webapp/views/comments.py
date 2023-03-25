@@ -1,7 +1,7 @@
 from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import get_object_or_404, redirect
-from django.urls import reverse
-from django.views.generic import CreateView, UpdateView
+from django.urls import reverse, reverse_lazy
+from django.views.generic import CreateView, UpdateView, DeleteView
 
 from webapp.forms import CommentForm
 from webapp.models import Comment, Product
@@ -46,5 +46,19 @@ class CommentUpdateView(SuccessMessageMixin, UpdateView):
         context['product'] = product
         return context
 
+class CommentDeleteView(SuccessMessageMixin, DeleteView):
+    template_name = 'comments/comment_confirm_delete.html'
+    model = Comment
+    success_message = 'Комментарий успешно удален!'
+
+    def get_success_url(self):
+        return reverse('product_detail', kwargs={'pk': Comment.objects.get(pk=self.kwargs.get('pk')).product.pk})
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        comment = get_object_or_404(Comment, pk=self.kwargs.get('pk'))
+        product = comment.product
+        context['product'] = product
+        return context
 
 

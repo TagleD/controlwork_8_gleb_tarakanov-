@@ -65,7 +65,7 @@
                                    role="button">Изменить</a>
                             </div>
                             <div class="col-3">
-                                <a class="btn btn-danger comment-delete" href="#" role="button">Удалить</a>
+                                <a class="btn btn-danger comment-delete" href="{% url 'product_comment_delete' comment.pk %}" role="button">Удалить</a>
                             </div>
                         </div>
                     </div>
