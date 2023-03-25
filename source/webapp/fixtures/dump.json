@@ -1,0 +1,41 @@
+[
+{
+  "model": "webapp.product",
+  "pk": 10,
+  "fields": {
+    "name": "Overwatch",
+    "category": "SNIPERS",
+    "description": "A sniper rifle that belonged to Panam. Increased reload spead and lethal accuracy - a rifle you can count on. Overwatch is an Iconic variant of the Techtronika SPT32 Grad Power Sniper Rifle in Cyberpunk 2077.",
+    "image": "post_images/Grad_Panam_9nffaQa.webp",
+    "is_deleted": false,
+    "created_at": "2023-03-25T07:19:17.341Z",
+    "updated_at": "2023-03-25T07:19:17.341Z"
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 11,
+  "fields": {
+    "name": "Stinger",
+    "category": "MELEE",
+    "description": "This iconic knife is the signature weapon of Aldecaldos member Driss Meriana, also known as Scorpion. Small but incredibly deadly. It belonged to Scorpion, a nomad of the Aldecaldos clan.",
+    "image": "post_images/Knife_Stinger.webp",
+    "is_deleted": false,
+    "created_at": "2023-03-25T07:23:58.160Z",
+    "updated_at": "2023-03-25T07:23:58.160Z"
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 12,
+  "fields": {
+    "name": "Pride",
+    "category": "PISTOLS",
+    "description": "Гордость — это культовый вариант конституционной свободы оружия в Cyberpunk 2077. Повсюду памятник пистолетам.",
+    "image": "post_images/Liberty_Rogue.webp",
+    "is_deleted": false,
+    "created_at": "2023-03-25T07:24:49.877Z",
+    "updated_at": "2023-03-25T07:24:49.877Z"
+  }
+}
+]
