@@ -1,7 +1,7 @@
 from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import redirect
-from django.urls import reverse
-from django.views.generic import ListView, CreateView, UpdateView, DetailView
+from django.urls import reverse, reverse_lazy
+from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView
 
 from webapp.forms import ProductForm
 from webapp.models.product import Product
@@ -63,3 +63,9 @@ class ProductUpdateView(SuccessMessageMixin, UpdateView):
 
     def get_success_url(self):
         return reverse('product_detail', kwargs={'pk': self.kwargs.get('pk')})
+
+class ProductDeleteView(SuccessMessageMixin, DeleteView):
+    template_name = 'product_confirm_delete.html'
+    model = Product
+    success_url = reverse_lazy('index')
+    success_message = 'Товар успешно удален!'

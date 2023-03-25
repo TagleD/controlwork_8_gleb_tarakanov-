@@ -4,6 +4,7 @@ from django.db.models import TextChoices
 from django.utils import timezone
 
 
+
 class CategoryChoice(TextChoices):
     OTHER = 'OTHER', 'Другое'
     RIFLES = 'RIFLES', 'Винтовки'
@@ -39,11 +40,6 @@ class Product(models.Model):
         blank=True,
         verbose_name='Фото'
     )
-    is_deleted = models.BooleanField(
-        null=False,
-        default=False,
-        verbose_name='Удалено',
-    )
     created_at = models.DateTimeField(
         auto_now_add=True,
         verbose_name="Время создания"
@@ -54,13 +50,9 @@ class Product(models.Model):
         null=True
     )
 
+
     def __str__(self):
         return f'{self.name} = {self.category}'
-
-    def delete(self, using=None, keep_parents=False):
-        self.is_deleted = True
-        self.deleted_at = timezone.now()
-        self.save()
 
 
     class Meta:
