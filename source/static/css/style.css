@@ -67,3 +67,15 @@ body {
     margin-top: 5px;
     margin-bottom: 22px;
 }
+
+.comment-delete{
+    margin-left: 31px;
+}
+
+.product-write-comment {
+    margin-top: 20px;
+}
+
+.comment-margin-bottom{
+    margin-bottom: 20px;
+}

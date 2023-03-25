@@ -1,6 +1,7 @@
 from django import forms
 from django.core.exceptions import ValidationError
 
+from webapp.models import Comment
 from webapp.models.product import Product
 
 
@@ -20,3 +21,18 @@ class ProductForm(forms.ModelForm):
         if len(name) < 2:
             raise ValidationError('Наименование должно быть длинее 2-ух символов')
         return name
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ('text', 'rating')
+        labels = {
+            'text': 'Напишите отзыв',
+            'rating': 'Поставьте оценку товару',
+        }
+
+    def clean_text(self):
+        text = self.cleaned_data.get('text')
+        if len(text) < 2:
+            raise ValidationError('Отзыв должен быть длинее 20-ти символов')
+        return text

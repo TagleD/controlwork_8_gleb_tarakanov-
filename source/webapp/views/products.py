@@ -8,20 +8,20 @@ from webapp.models.product import Product
 
 
 class IndexView(ListView):
-    template_name = 'products_list.html'
+    template_name = 'products/products_list.html'
     model = Product
     context_object_name = 'products'
     ordering = ('-created_at',)
 
 
 class ProductDetailView(DetailView):
-    template_name = 'product_detail.html'
+    template_name = 'products/product_detail.html'
     model = Product
 
 
 
 class ProductCreateView(SuccessMessageMixin, CreateView):
-    template_name = 'product_add.html'
+    template_name = 'products/product_add.html'
     model = Product
     form_class = ProductForm
     success_message = 'Товар успешно добавлен'
@@ -56,7 +56,7 @@ class ProductCreateView(SuccessMessageMixin, CreateView):
 
 
 class ProductUpdateView(SuccessMessageMixin, UpdateView):
-    template_name = 'product_update.html'
+    template_name = 'products/product_update.html'
     model = Product
     form_class = ProductForm
     success_message = 'Товар успешно изменен'
@@ -65,7 +65,7 @@ class ProductUpdateView(SuccessMessageMixin, UpdateView):
         return reverse('product_detail', kwargs={'pk': self.kwargs.get('pk')})
 
 class ProductDeleteView(SuccessMessageMixin, DeleteView):
-    template_name = 'product_confirm_delete.html'
+    template_name = 'products/product_confirm_delete.html'
     model = Product
     success_url = reverse_lazy('index')
     success_message = 'Товар успешно удален!'
