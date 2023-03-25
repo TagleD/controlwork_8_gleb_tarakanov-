@@ -41,6 +41,18 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="product-comments-title">Отзывы к товару {{ product.name }}</h3>
+                    </div>
+                </div>
+                {% for comment in product.comments.all %}
+                    <div class="product-comment-block">
+                        <h5>Автор: {{ comment.author }}</h5>
+                        <p>Оценка: {{ comment.rating }}</p>
+                        <p>{{ comment.text }}</p>
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </div>

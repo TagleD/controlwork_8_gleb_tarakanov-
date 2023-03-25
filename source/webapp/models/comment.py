@@ -20,7 +20,7 @@ class Comment(models.Model):
         on_delete=models.CASCADE
     )
     product = models.ForeignKey(
-        'webapp.Product',
+        to='webapp.Product',
         related_name='comments',
         on_delete=models.CASCADE,
         verbose_name='Продукт'

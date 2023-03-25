@@ -45,3 +45,14 @@ body {
 .edit-buttons{
     width: 90px;
 }
+
+.product-comments-title {
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 30px;
+}
+
+.product-comment-block {
+    margin-bottom: 20px;
+    margin-left: 27px;
+}
