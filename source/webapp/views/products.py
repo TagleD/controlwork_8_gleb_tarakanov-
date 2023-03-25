@@ -55,12 +55,11 @@ class ProductCreateView(SuccessMessageMixin, CreateView):
     #     return self.render_to_response(context)
 
 
-class ProductUpdateView(UpdateView):
+class ProductUpdateView(SuccessMessageMixin, UpdateView):
     template_name = 'product_update.html'
     model = Product
     form_class = ProductForm
     success_message = 'Товар успешно изменен'
 
     def get_success_url(self):
-        return reverse('product_detail', kwargs={'pk': self.object.pk})
-
+        return reverse('product_detail', kwargs={'pk': self.kwargs.get('pk')})
